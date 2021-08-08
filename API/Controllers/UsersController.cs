@@ -9,6 +9,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
+    // Er is authenticatie wanneer een gebruiker users wilt ophalen moet hij geauthenticeert zijn
+    [Authorize]
     public class UsersController : BaseApiController
     {
         private readonly DataContext _context;
@@ -27,7 +29,7 @@ namespace API.Controllers
         }
 
 
-        [Authorize]
+
         //Get a specific user
         [HttpGet("{id}")]
         public async Task<ActionResult<AppUser>> GetUser(int id){
