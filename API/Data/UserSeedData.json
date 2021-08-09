@@ -42,6 +42,13 @@
         ]
     },
     {
-        "UserName": "Lisa"
+        "UserName": "Lisa",
+        "Watchlist": [
+            {
+                "ImdbId": "tt4154664",
+                "Title": "Captain Marvel",
+                "Poster": "https://m.media-amazon.com/images/M/MV5BMTE0YWFmOTMtYTU2ZS00ZTIxLWE3OTEtYTNiYzBkZjViZThiXkEyXkFqcGdeQXVyODMzMzQ4OTI@._V1_SX300.jpg"
+            }
+        ]
     }
   ]

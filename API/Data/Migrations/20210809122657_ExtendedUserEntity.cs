@@ -12,11 +12,18 @@ namespace API.Data.Migrations
                 {
                     ImdbId = table.Column<string>(type: "TEXT", nullable: false),
                     Title = table.Column<string>(type: "TEXT", nullable: false),
-                    Poster = table.Column<string>(type: "TEXT", nullable: true)
+                    Poster = table.Column<string>(type: "TEXT", nullable: true),
+                    AppUserId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Movies", x => x.ImdbId);
+                    table.ForeignKey(
+                        name: "FK_Movies_Users_AppUserId",
+                        column: x => x.AppUserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -48,8 +55,13 @@ namespace API.Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "Movies",
-                columns: new[] { "ImdbId", "Poster", "Title" },
-                values: new object[] { "tt0120338", "https://m.media-amazon.com/images/M/MV5BMDdmZGU3NDQtY2E5My00ZTliLWIzOTUtMTY4ZGI1YjdiNjk3XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg", "Titanic" });
+                columns: new[] { "ImdbId", "AppUserId", "Poster", "Title" },
+                values: new object[] { "tt0120338", null, "https://m.media-amazon.com/images/M/MV5BMDdmZGU3NDQtY2E5My00ZTliLWIzOTUtMTY4ZGI1YjdiNjk3XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg", "Titanic" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Movies_AppUserId",
+                table: "Movies",
+                column: "AppUserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Reviews_AppUserId",

@@ -41,6 +41,9 @@ namespace API.Data.Migrations
                     b.Property<string>("ImdbId")
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("AppUserId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Poster")
                         .HasColumnType("TEXT");
 
@@ -49,6 +52,8 @@ namespace API.Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("ImdbId");
+
+                    b.HasIndex("AppUserId");
 
                     b.ToTable("Movies");
 
@@ -85,6 +90,13 @@ namespace API.Data.Migrations
                     b.ToTable("Reviews");
                 });
 
+            modelBuilder.Entity("API.Entities.Movie", b =>
+                {
+                    b.HasOne("API.Entities.AppUser", null)
+                        .WithMany("Watchlist")
+                        .HasForeignKey("AppUserId");
+                });
+
             modelBuilder.Entity("API.Entities.Review", b =>
                 {
                     b.HasOne("API.Entities.AppUser", "AppUser")
@@ -106,6 +118,8 @@ namespace API.Data.Migrations
             modelBuilder.Entity("API.Entities.AppUser", b =>
                 {
                     b.Navigation("Reviews");
+
+                    b.Navigation("Watchlist");
                 });
 #pragma warning restore 612, 618
         }

@@ -9,5 +9,6 @@ namespace API.Entities
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
         public ICollection<Review> Reviews { get; set; }
+        public ICollection<Movie> Watchlist { get; set; }
     }
 }
