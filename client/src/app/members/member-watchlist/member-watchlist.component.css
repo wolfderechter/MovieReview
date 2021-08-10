@@ -1,0 +1,73 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  font-family: arial;
+}
+.main {
+  margin: 2%;
+}
+
+.card {
+  width: 20%;
+  display: inline-block;
+  margin: 2%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.card:hover {
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.image img {
+  width: 100%;
+}
+
+.card-title {
+  text-align: center;
+  padding: 10px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+/* Imdb button */
+.imdb-logo {
+  font: 2em/1 Impact, HelveticaNeue-CondensedBold, sans-serif;
+  color: #000;
+  text-shadow: 0 0 0.15em #fff;
+  text-decoration: none;
+
+  display: inline-block;
+  vertical-align: bottom;
+  padding: 0.15em 0.25em;
+  border-radius: 0.15em;
+  background: radial-gradient(#ffffb8, #ce981d);
+}
+
+.imdb-logo:hover {
+  background: radial-gradient(lighten(#ffffb8, 10%), lighten(#ce981d, 10%));
+}
+
+.card-button {
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+
+/* Responsiveness smaller screens */
+@media(max-width: 1200px){
+  .card{
+      width: 25%;
+  }
+
+}
+/* smallest screens */
+@media(max-width: 992px){
+  .card{
+    width: 40%;
+  }
+}

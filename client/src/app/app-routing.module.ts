@@ -4,6 +4,9 @@ import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
 import { TestErrorsComponent } from './errors/test-errors/test-errors.component';
 import { HomeComponent } from './home/home.component';
+import { MemberListComponent } from './members/member-list/member-list.component';
+import { MemberReviewListComponent } from './members/member-review-list/member-review-list.component';
+import { MemberWatchlistComponent } from './members/member-watchlist/member-watchlist.component';
 import { ReviewListComponent } from './reviews/review-list/review-list.component';
 import { SearchComponent } from './search/search.component';
 import { WatchlistComponent } from './watchlist/watchlist.component';
@@ -18,12 +21,16 @@ const routes: Routes = [
     children: [
       {path: 'reviews', component: ReviewListComponent, canActivate: [AuthGuard]},
       {path: 'watchlist', component: WatchlistComponent, canActivate: [AuthGuard]},
-      {path: 'search', component: SearchComponent, canActivate: [AuthGuard]}
+      // {path: 'search', component: SearchComponent},
+      {path: 'members', component: MemberListComponent, canActivate: [AuthGuard]},
+      {path: 'members/:username/watchlist', component: MemberWatchlistComponent, canActivate: [AuthGuard]},
+      {path: 'members/:username/reviews', component: MemberReviewListComponent, canActivate: [AuthGuard]}
     ]
   },
   {path: 'errors', component: TestErrorsComponent},
   {path: 'not-found', component: NotFoundComponent},
   {path: 'server-error', component: ServerErrorComponent},
+  {path: 'search', component: SearchComponent},
   // Specifieke details van een review
   // {path: 'reviews/:id', component: HomeComponent},
   {path: '**', component: HomeComponent, pathMatch: 'full'}

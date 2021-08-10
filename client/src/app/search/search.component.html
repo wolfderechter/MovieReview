@@ -1,1 +1,17 @@
-<p>search works!</p>
+<input type="text" [formControl]="searchControl" placeholder="Search" class="searchbox">
+<div class="cards" >
+  <div class="card" *ngFor="let movie of movies | async">
+    <div class="image">
+      <img src="{{movie.Poster}}"/>
+    </div>
+    <div class="card-title">
+      <h2>{{movie.Title}}</h2>
+    </div>
+    <div class="card-button">
+      <a href="http://imdb.com/title/{{movie.imdbID}}" target="_blank" class="imdb-logo">IMDb</a>
+      <a href="" class="button">Add To Watchlist <div class="back"></div></a>
+      <a href="" class="button">Add Review</a>
+    </div>
+  </div>
+
+</div>

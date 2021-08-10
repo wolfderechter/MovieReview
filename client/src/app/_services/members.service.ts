@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Review } from '../_models/review';
+import { Member } from '../_models/member';
 
+// Wordt nu gedaan door de interceptor
 // const httpOptions = {
 //   headers: new HttpHeaders({
 //     Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('user'))?.token
@@ -12,18 +13,18 @@ import { Review } from '../_models/review';
 @Injectable({
   providedIn: 'root'
 })
-export class ReviewsService {
+export class MembersService {
 
 
   baseUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 
-  getReviews(username: string){
-    return this.http.get<Review[]>(this.baseUrl + 'users/' + username)
+  getMembers(){
+    return this.http.get<Member[]>(this.baseUrl + 'users');
   }
 
-  getReview(username: string, movieId: string){
-    return this.http.get<Review>(this.baseUrl + 'users/' + username + '/reviews/' + movieId);
+  getMember(username: string){
+    return this.http.get<Member>(this.baseUrl + 'users/' + username);
   }
 }

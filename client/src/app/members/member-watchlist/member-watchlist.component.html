@@ -1,0 +1,15 @@
+<h1>Watchlist of {{ member?.username | titlecase}}</h1>
+<div class="cards" *ngFor="let movie of watchlist">
+  <div class="card">
+    <div class="image">
+      <img src="{{movie.poster}}"/>
+    </div>
+    <div class="card-title">
+      <h2>{{movie.title}}</h2>
+    </div>
+    <div class="card-button">
+      <a href="http://imdb.com/title/{{movie.imdbId}}" target="_blank" class="imdb-logo">IMDb</a>
+    </div>
+  </div>
+
+</div>

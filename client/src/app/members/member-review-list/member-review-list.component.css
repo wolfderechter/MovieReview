@@ -10,7 +10,7 @@
   }
   
   .card {
-    width: 25%;
+    width: 20%;
     display: inline-block;
     margin: 2%;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -33,23 +33,25 @@
   h2 {
     font-size: 20px;
   }
+
+  .card-body {
+    text-align: center;
+    padding-bottom: 5px;
+  }
+  
   
   /* Imdb button */
   .imdb-logo {
-    font: 1.8em/1 Impact, HelveticaNeue-CondensedBold, sans-serif;
+    font: 2em/1 Impact, HelveticaNeue-CondensedBold, sans-serif;
     color: #000;
     text-shadow: 0 0 0.15em #fff;
     text-decoration: none;
   
     display: inline-block;
+    vertical-align: bottom;
     padding: 0.15em 0.25em;
     border-radius: 0.15em;
     background: radial-gradient(#ffffb8, #ce981d);
-    margin: 5px;
-    display: block;
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
   }
   
   .imdb-logo:hover {
@@ -61,47 +63,7 @@
     text-align: center;
   }
   
-
-  .button{
-    border: none;
-	background: #404040;
-	color: #ffffff !important;
-	font-weight: 100;
-    padding: 0.25em 0.25em;
-	text-transform: uppercase;
-	display: block;
-	transition: all 0.3s ease 0s;
-    text-decoration: none;
-    margin: 5px;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 3px;
-  }
-
-  .button:hover {
-	color: #404040 !important;
-	font-weight: 700 !important;
-	letter-spacing: 3px;
-	background: none;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-	transition: all 0.3s ease 0s;
-}
   
-
-
-
-   /* Searchbox */
-    .searchbox input {
-      width: 65px;
-      border: 1px solid #ccc;
-      padding: 8px;
-      font-size: 15px;
-      transition: width 0.2s;
-      -webkit-appearance: none;
-    }
-
-
   /* Responsiveness smaller screens */
   @media(max-width: 1200px){
     .card{
