@@ -8,7 +8,8 @@
       <h2>{{movie.title}}</h2>
     </div>
     <div class="card-button">
-      <a href="http://imdb.com/title/{{movie.imdbId}}" target="_blank" class="imdb-logo button btn btn-warning">IMDb</a>
+      <a href="http://imdb.com/title/{{movie.imdbId}}" target="_blank" class="imdb-logo">IMDb</a>
+      <button class="button" (click)="removeFromWatchlist(movie)">Remove from watchlist</button>
     </div>
   </div>
 

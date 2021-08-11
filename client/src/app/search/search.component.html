@@ -1,4 +1,8 @@
-<input type="text" [formControl]="searchControl" placeholder="Search" class="searchbox">
+
+<!-- <input type="text" [formControl]="searchControl" placeholder="Search" class="searchbox" (ngSubmit)="search()"> -->
+<input type="search" [(ngModel)]="searchString" placeholder="Search a movie" class="form-control" (keyup.enter)="search()">
+
+
 <div class="cards" >
   <div class="card" *ngFor="let movie of movies | async">
     <div class="image">
@@ -8,9 +12,9 @@
       <h2>{{movie.Title}}</h2>
     </div>
     <div class="card-button">
-      <a href="http://imdb.com/title/{{movie.imdbID}}" target="_blank" class="imdb-logo">IMDb</a>
-      <a href="" class="button">Add To Watchlist <div class="back"></div></a>
-      <a href="" class="button">Add Review</a>
+      <a href="http://imdb.com/title/{{movie.imdbID}}" target="_blank" class="imdb-logo button btn btn-warning">IMDb</a>
+      <a href="" class="button btn btn-dark">Add To Watchlist <div class="back"></div></a>
+      <a href="" class="button btn btn-secondary">Add Review</a>
     </div>
   </div>
 

@@ -11,23 +11,16 @@ import { SearchService } from '../_services/search.service';
 })
 export class SearchComponent {
   movies: Observable<any[]>;
-  searchControl: FormControl;
-
+  searchString: string;
 
   constructor(private searchService: SearchService) { }
 
   ngOnInit() {
-    this.searchControl = new FormControl();
+  }
 
-    this.movies = this.searchControl.valueChanges
-      .pipe(
-        debounceTime(500),
-        distinctUntilChanged(),
-        switchMap(
-          searchString => this.searchService.getMoviesBySearchTerm(searchString)
-        ),
-        map((res:any) => res.Search)
-      );
-
+  search(){
+    if(this.searchString){
+      this.movies = this.searchService.getMoviesBySearchTerm(this.searchString).pipe(map((res:any) => res.Search));
+    }
   }
 }

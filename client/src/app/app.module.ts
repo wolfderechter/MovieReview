@@ -13,19 +13,19 @@ import { RegisterComponent } from './register/register.component';
 import { ToastrModule } from 'ngx-toastr';
 import { ReviewListComponent } from './reviews/review-list/review-list.component';
 import { ReviewDetailComponent } from './reviews/review-detail/review-detail.component';
-import { WatchlistComponent } from './watchlist/watchlist.component';
 import { SearchComponent } from './search/search.component';
 import { ErrorInterceptor } from './_interceptors/error.interceptor';
 import { TestErrorsComponent } from './errors/test-errors/test-errors.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
-import { ReviewCardComponent } from './reviews/review-card/review-card.component';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { MemberListComponent } from './members/member-list/member-list.component';
 import { MemberWatchlistComponent } from './members/member-watchlist/member-watchlist.component';
 import { MemberReviewListComponent } from './members/member-review-list/member-review-list.component';
 import { MemberCardComponent } from './members/member-card/member-card.component';
 import { SearchService } from './_services/search.service';
+import { MemberEditWatchlistComponent } from './members/member-edit/member-edit-watchlist/member-edit-watchlist.component';
+import { ReviewEditComponent } from './reviews/review-edit/review-edit.component';
 
 
 @NgModule({
@@ -36,16 +36,16 @@ import { SearchService } from './_services/search.service';
     RegisterComponent,
     ReviewListComponent,
     ReviewDetailComponent,
-    WatchlistComponent,
     SearchComponent,
     TestErrorsComponent,
     NotFoundComponent,
     ServerErrorComponent,
-    ReviewCardComponent,
     MemberListComponent,
     MemberCardComponent,
     MemberWatchlistComponent,
     MemberReviewListComponent,
+    MemberEditWatchlistComponent,
+    ReviewEditComponent,
     
   ],
   imports: [

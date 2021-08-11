@@ -31,7 +31,7 @@
   }
   
   h2 {
-    font-size: 20px;
+    font-size: 25px;
   }
 
   .card-body {
@@ -42,20 +42,15 @@
   
   /* Imdb button */
   .imdb-logo {
-    font: 2em/1 Impact, HelveticaNeue-CondensedBold, sans-serif;
-    color: #000;
-    text-shadow: 0 0 0.15em #fff;
-    text-decoration: none;
-  
-    display: inline-block;
-    vertical-align: bottom;
-    padding: 0.15em 0.25em;
-    border-radius: 0.15em;
-    background: radial-gradient(#ffffb8, #ce981d);
+    color: #343a40; 
+    font-weight: 500;
   }
   
-  .imdb-logo:hover {
-    background: radial-gradient(lighten(#ffffb8, 10%), lighten(#ce981d, 10%));
+  .button{
+    width: 80%;
+    margin: 5px;
+    padding: 0.25em 0.25em;
+
   }
   
   .card-button {
