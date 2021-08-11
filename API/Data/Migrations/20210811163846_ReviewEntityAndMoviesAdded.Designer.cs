@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210809134549_ExtendedUserEntity")]
-    partial class ExtendedUserEntity
+    [Migration("20210811163846_ReviewEntityAndMoviesAdded")]
+    partial class ReviewEntityAndMoviesAdded
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,11 +40,15 @@ namespace API.Data.Migrations
 
             modelBuilder.Entity("API.Entities.Movie", b =>
                 {
-                    b.Property<string>("ImdbId")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("AppUserId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("ImdbId")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Poster")
                         .HasColumnType("TEXT");
@@ -53,7 +57,7 @@ namespace API.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("ImdbId");
+                    b.HasKey("Id");
 
                     b.HasIndex("AppUserId");
 
@@ -62,6 +66,7 @@ namespace API.Data.Migrations
                     b.HasData(
                         new
                         {
+                            Id = 1,
                             ImdbId = "tt0120338",
                             Poster = "https://m.media-amazon.com/images/M/MV5BMDdmZGU3NDQtY2E5My00ZTliLWIzOTUtMTY4ZGI1YjdiNjk3XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg",
                             Title = "Titanic"
@@ -77,8 +82,8 @@ namespace API.Data.Migrations
                     b.Property<int>("AppUserId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("MovieImdbId")
-                        .HasColumnType("TEXT");
+                    b.Property<int?>("MovieId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("Score")
                         .HasColumnType("INTEGER");
@@ -87,7 +92,7 @@ namespace API.Data.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.HasIndex("MovieImdbId");
+                    b.HasIndex("MovieId");
 
                     b.ToTable("Reviews");
                 });
@@ -109,8 +114,7 @@ namespace API.Data.Migrations
 
                     b.HasOne("API.Entities.Movie", "Movie")
                         .WithMany()
-                        .HasForeignKey("MovieImdbId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("MovieId");
 
                     b.Navigation("AppUser");
 
