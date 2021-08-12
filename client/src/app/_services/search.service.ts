@@ -7,7 +7,8 @@ export class SearchService {
 
 
   baseUrl = 'https://www.omdbapi.com/?apikey=de97fce5';
-
+  movie: Movie;
+  
   constructor(private http: HttpClient) { }
 
   // getMovies(searchString: string){

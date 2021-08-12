@@ -6,7 +6,8 @@
 <div class="cards" >
   <div class="card" *ngFor="let movie of movies | async">
     <div class="image">
-      <img src="{{movie.Poster}}"/>
+      <!-- <img src="{{movie.Poster == "N/A"?'./assets/default.png':movie.Poster}}"/> -->
+      <img [src]="checkIfImageExists(movie)"/>
     </div>
     <div class="card-title">
       <h2>{{movie.Title}}</h2>
@@ -14,7 +15,7 @@
     <div class="card-button">
       <a href="http://imdb.com/title/{{movie.imdbID}}" target="_blank" class="imdb-logo button btn btn-warning">IMDb</a>
       <a class="button btn btn-dark" (click)="addToWatchlist(movie)">Add To Watchlist <div class="back"></div></a>
-      <a class="button btn btn-secondary">Add Review</a>
+      <a class="button btn btn-secondary" (click)="createReview(movie)">Add Review</a>
     </div>
   </div>
 

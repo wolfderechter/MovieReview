@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { take } from 'rxjs/operators';
 import { Member } from 'src/app/_models/member';
 import { Review } from 'src/app/_models/review';
@@ -17,7 +18,7 @@ export class ReviewListComponent implements OnInit {
   member: Member;
   user: User;
 
-  constructor(private accountService: AccountService, private memberService: MembersService) { 
+  constructor(private accountService: AccountService, private memberService: MembersService, private router: Router, private reviewService: ReviewsService) { 
     this.accountService.currentUser$.pipe(take(1)).subscribe(user => this.user = user);
   }
 
@@ -32,4 +33,8 @@ export class ReviewListComponent implements OnInit {
     })
   }
   
+  editReview(review: Review){
+    this.reviewService.review = review;
+    this.router.navigate(["/review/edit"]);
+  }
 }

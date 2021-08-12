@@ -1,6 +1,6 @@
 <h1>Reviews of {{ member?.username | titlecase}}</h1>
-<div class="cards" *ngFor="let review of reviews">
-  <div class="card">
+<div class="cards" >
+  <div class="card" *ngFor="let review of reviews">
     <div class="image">
       <img src="{{review.movie.poster}}"/>
     </div>
@@ -11,7 +11,7 @@
       <h5>Score: {{review.score}}</h5>
       <a href="http://imdb.com/title/{{review.movie.imdbId}}" target="_blank" class="imdb-logo button btn btn-warning">IMDb</a>
       <button class="button btn btn-dark">Full review</button>
-      <button class="button btn btn-secondary" routerLink='/review/edit'>Edit review</button>
+      <button class="button btn btn-secondary" (click)="editReview(review)">Edit review</button>
     </div>
   </div>
 

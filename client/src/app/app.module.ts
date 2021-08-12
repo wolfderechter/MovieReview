@@ -26,6 +26,7 @@ import { MemberCardComponent } from './members/member-card/member-card.component
 import { SearchService } from './_services/search.service';
 import { MemberEditWatchlistComponent } from './members/member-edit/member-edit-watchlist/member-edit-watchlist.component';
 import { ReviewEditComponent } from './reviews/review-edit/review-edit.component';
+import { ReviewCreateComponent } from './reviews/review-create/review-create.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { ReviewEditComponent } from './reviews/review-edit/review-edit.component
     MemberReviewListComponent,
     MemberEditWatchlistComponent,
     ReviewEditComponent,
+    ReviewCreateComponent,
     
   ],
   imports: [
@@ -54,6 +56,7 @@ import { ReviewEditComponent } from './reviews/review-edit/review-edit.component
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     BsDropdownModule.forRoot(),
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right'

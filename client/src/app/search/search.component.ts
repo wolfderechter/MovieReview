@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, switchMap, take } from 'rxjs/operators';
@@ -22,7 +23,8 @@ export class SearchComponent {
   user: User;
   watchlist: Movie[];
   
-  constructor(private searchService: SearchService, private memberService: MembersService, private toastr: ToastrService, private accountService: AccountService) { 
+  constructor(private searchService: SearchService, private memberService: MembersService, private toastr: ToastrService,
+     private accountService: AccountService, private router: Router) { 
     this.accountService.currentUser$.pipe(take(1)).subscribe(user => this.user = user);
   }
 
@@ -60,6 +62,28 @@ export class SearchComponent {
         });
       }
     }
+  }
 
+  createReview(movie: any){
+    this.searchService.movie = {
+      imdbId : movie.imdbID,
+      title : movie.Title,
+      poster : movie.Poster
+    }
+
+    // if review bestaat
+    if(this.member.reviews.find(r => r.movie.imdbId === movie.imdbID)){
+      this.router.navigate(["/review/edit"]);
+    }
+    else{
+      this.router.navigate(["/review/create"]);
+    }
+  }
+
+  checkIfImageExists(movie: any){
+    if(movie.Poster == "N/A"){
+      return './assets/default.png';
+    }
+    return movie.Poster;
   }
 }

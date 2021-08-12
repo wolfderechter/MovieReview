@@ -9,6 +9,7 @@
     margin: 2%;
   }
   
+
   .card {
     width: 25%;
     display: inline-block;
@@ -36,25 +37,10 @@
   
   /* Imdb button */
   .imdb-logo {
-    font: 1.8em/1 Impact, HelveticaNeue-CondensedBold, sans-serif;
-    color: #000;
-    text-shadow: 0 0 0.15em #fff;
-    text-decoration: none;
-  
-    display: inline-block;
-    padding: 0.15em 0.25em;
-    border-radius: 0.15em;
-    background: radial-gradient(#ffffb8, #ce981d);
-    margin: 5px;
-    display: block;
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
+    color: #343a40; 
+    font-weight: 500;
   }
   
-  .imdb-logo:hover {
-    background: radial-gradient(lighten(#ffffb8, 10%), lighten(#ce981d, 10%));
-  }
   
   .card-button {
     padding-bottom: 5px;
@@ -63,29 +49,11 @@
   
 
   .button{
-    border: none;
-	background: #404040;
-	color: #ffffff !important;
-	font-weight: 100;
-    padding: 0.25em 0.25em;
-	text-transform: uppercase;
-	display: block;
-	transition: all 0.3s ease 0s;
-    text-decoration: none;
-    margin: 5px;
     width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 3px;
+    margin: 5px;
+    padding: 0.25em 0.25em;
   }
 
-  .button:hover {
-	color: #404040 !important;
-	font-weight: 700 !important;
-	background: none;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-	transition: all 0.3s ease 0s;
-}
   
 
 

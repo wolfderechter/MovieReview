@@ -13,8 +13,7 @@ import { Review } from '../_models/review';
   providedIn: 'root'
 })
 export class ReviewsService {
-
-
+  review: Review;
   baseUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
@@ -25,5 +24,9 @@ export class ReviewsService {
 
   getReview(username: string, movieId: string){
     return this.http.get<Review>(this.baseUrl + 'users/' + username + '/reviews/' + movieId);
+  }
+
+  createReview(review: any){
+    return this.http.post(this.baseUrl + 'reviews', review);
   }
 }
