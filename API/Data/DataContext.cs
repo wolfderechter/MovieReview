@@ -36,10 +36,11 @@ namespace API.Data
             //     .HasForeignKey(um => um.AppUserId);
 
 
-            // builder.Entity<AppUserMovie>()
-            //     .HasOne<Movie>(um => um.ImdbId)
-            //     .WithMany(m => m.AppUserMovies)
-            //     .HasForeignKey(m => m.ImdbId);
+            builder.Entity<AppUser>()
+                .HasMany(u => u.Watchlist)
+                .WithOne()
+                .OnDelete(DeleteBehavior.Cascade);
+                
 
 
 

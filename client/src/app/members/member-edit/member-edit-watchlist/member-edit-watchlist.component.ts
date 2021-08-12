@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { take } from 'rxjs/operators';
 import { Member } from 'src/app/_models/member';
 import { Movie } from 'src/app/_models/movie';
@@ -16,7 +17,7 @@ export class MemberEditWatchlistComponent implements OnInit {
   user: User;
   watchlist: Movie[];
 
-  constructor(private accountService: AccountService, private memberService: MembersService) { 
+  constructor(private accountService: AccountService, private memberService: MembersService, private toastr: ToastrService) { 
     this.accountService.currentUser$.pipe(take(1)).subscribe(user => this.user = user);
   }
 
@@ -34,6 +35,19 @@ export class MemberEditWatchlistComponent implements OnInit {
   removeFromWatchlist(movie: Movie){
     if(confirm("Are you sure to delete " + "'" + movie.title + "'" + " from your watchlist?")) {
       // DELETE in api
+      this.memberService.updateMember(movie).subscribe(() => {
+        this.watchlist.splice(this.watchlist.indexOf(movie), 1);
+        this.toastr.success('Succesfully removed from your watchlist');
+      });
+    }
+  }
+  addToWatchlist(movie: Movie){
+    if(confirm("Are you sure to add " + "'" + movie.title + "'" + " to your watchlist?")) {
+      // ADD in api
+      this.memberService.updateMember(movie).subscribe(() => {
+        this.watchlist.push(movie);
+        this.toastr.success('Succesfully added to your watchlist');
+      });
     }
   }
 }

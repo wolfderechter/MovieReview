@@ -30,7 +30,7 @@ namespace API.Controllers
 
         [HttpPost]
         public async Task<ActionResult<ReviewDto>> CreateReview(CreateReviewDto createReviewDto){
-            var username = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
             var author = await _userRepository.GetUsersByUsernameAsync(username);
 
