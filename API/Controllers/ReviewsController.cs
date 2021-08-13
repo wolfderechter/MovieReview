@@ -48,5 +48,26 @@ namespace API.Controllers
             return BadRequest("Failed to send message");
         }
 
+        [HttpPut]
+        public async Task<ActionResult> UpdateReview(UpdateReviewDto reviewDto){
+            var username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            var author = await _userRepository.GetUsersByUsernameAsync(username);
+
+            // var review = new Review{
+            //     AppUser = author,
+            //     Score = updateReview.Score,
+            //     Movie = updateReview.Movie
+            // };
+            
+            author.Reviews.FirstOrDefault(r => r.Movie.ImdbId == reviewDto.Movie.ImdbId).Score = reviewDto.Score;
+            _userRepository.Update(author);
+
+            if(await _userRepository.SaveAllAsync())
+                return NoContent();
+
+            return BadRequest("Failed to update review");
+        }
+
     }
 }

@@ -2,16 +2,17 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using API.Entities;
 using API.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Data.Repositories
 {
     public class ReviewRepository : IReviewRepository
     {
         private readonly DataContext _context;
+
         public ReviewRepository(DataContext context)
         {
             _context = context;
-
         }
 
         public void AddReview(Review review)

@@ -29,4 +29,8 @@ export class ReviewsService {
   createReview(review: any){
     return this.http.post(this.baseUrl + 'reviews', review);
   }
+  
+  updateReview(review: any){
+    return this.http.put(this.baseUrl + 'reviews', review);
+  }
 }

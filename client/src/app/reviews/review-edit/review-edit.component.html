@@ -1,17 +1,16 @@
-<!-- Conditional toevoegen zodat we eerst kijken of we de member hebben voordat we info opvragen -->
-<div class="row" *ngIf="review">
+<div class="row" >
     <div class="col-4">
-        <h1>Edit Review</h1>
+        <h1>Review</h1>
     </div>
     <div class="col-8">
-        <div class="alert alert-info" *ngIf="editForm.dirty">
+        <!-- <div class="alert alert-info" *ngIf="editForm.dirty">
             <strong>Information: </strong> You have made changes. Any unsaved changes will be lost
-        </div>
+        </div> -->
     </div>
     <!-- Movie card -->
     <div class="col-4">
         <div class="card">
-            <img [src]="checkIfImageExists(movie)" class="card-img-top img-thumbnail">
+            <img [src]="checkIfImageExists()" class="card-img-top img-thumbnail">
 
             <div class="card-body">
                 <div>
@@ -20,16 +19,16 @@
                 </div>
             </div>
             <div class="card-footer">
-                <button [disabled]="!editForm.dirty" class="btn btn-success btn-block">Save changes</button>
+                <button form="reviewForm" type="submit" class="btn btn-success btn-block">Save changes</button>
             </div>
         </div>
     </div>
     <div class="col-8">
-        <form #editForm="ngForm" (ngSubmit)="updateReview()" id="editForm">
+        <form [formGroup]='reviewForm' (ngSubmit)="updateReview()" id="reviewForm">
             <h4>Score</h4>
-            <!-- <textarea class="form-control" [(ngModel)]="review.score" name="score" rows="6"></textarea> -->
-            <select [(ngModel)]="review.score" name="score"  class="form-control">
-                <option>1</option>
+            <!-- <textarea class="form-control" name="score" rows="6"></textarea> -->
+            <select name="score" class="form-control" formControlName='score'>
+                <option selected=selected>1</option>
                 <option>2</option>
                 <option>3</option>
                 <option>4</option>
@@ -40,17 +39,18 @@
                 <option>9</option>
                 <option>10</option>
             </select>
-            <h4 class="mt-2">Review</h4>
-            <!-- <textarea class="form-control" [(ngModel)]="review.lookingFor" name="lookingFor" rows="6"></textarea>
+
+            <!-- <h4 class="mt-2">Looking for</h4>
+            <textarea class="form-control" [(ngModel)]="review.lookingFor" name="lookingFor" rows="6"></textarea>
             <h4 mt-2>Interests</h4>
-            <textarea class="form-control" [(ngModel)]="review.interests" name="interests" rows="6"></textarea>
-            <h4 class="mt-2">Location Details: </h4>
-            <div class="form-inline">
+            <textarea class="form-control" [(ngModel)]="review.interests" name="interests" rows="6"></textarea> -->
+            <!-- <h4 class="mt-2">Location Details: </h4> -->
+            <!-- <div class="form-inline">
                 <label for="city">City: </label>
                 <input [(ngModel)]="member.city" type="text" name="city" class="form-control mx-2">
                 <label for="city">Country: </label>
                 <input [(ngModel)]="member.country" type="text" name="country" class="form-control mx-2">
-            </div>  -->
+            </div> -->
         </form>
     </div>
 </div>

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -56,6 +57,11 @@ namespace API.Data.Repositories
             _context.Entry(user).State = EntityState.Modified;
         }
 
+        public void UpdateReview(Review review)
+        {
+            _context.Update(review.AppUser);
+        }
+
         public async Task<IEnumerable<MemberDto>> GetMembersAsync()
         {
             return await _context.Users
@@ -68,7 +74,10 @@ namespace API.Data.Repositories
             return await _context.Users
                 .Where(x => x.UserName == username)
                 .ProjectTo<MemberDto>(_mapper.ConfigurationProvider)
-                .SingleOrDefaultAsync();
+                .SingleOrDefaultAsync()
+                ;
         }
+
+
     }
 }

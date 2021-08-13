@@ -10,7 +10,8 @@ import { ReviewEditComponent } from '../reviews/review-edit/review-edit.componen
 export class PreventUnsavedChangesGuard implements CanDeactivate<unknown> {
   canDeactivate(component: ReviewEditComponent): boolean {
     // if(component.editForm.dirty){
-    if(component.checkSubmitted){
+      console.log('test' + component.checkSubmitted);
+    if(!component.checkSubmitted){
       return confirm('Are you sure you want to continue? Any unsaved changes will be lost');
     }
     return true;

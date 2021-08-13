@@ -22,7 +22,6 @@ export class ReviewCreateComponent implements OnInit {
   member: Member;
   user: User;
   review: any;
-  submitted = false;
 
   reviewForm: FormGroup;
   validationErrors: string[] = [];
@@ -92,7 +91,6 @@ export class ReviewCreateComponent implements OnInit {
         'Poster': this.movie.poster
       },
       'Username': this.user.username}).subscribe(response => {
-      this.submitted = true;
       this.router.navigateByUrl('/reviews');
       this.toastr.success("Succesfully created the review");
     }, error => {

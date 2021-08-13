@@ -23,7 +23,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {path: 'reviews', component: ReviewListComponent},
-      {path: 'review/edit', component: ReviewEditComponent, canDeactivate: ['PreventUnsavedChangesGuard']},
+      {path: 'review/edit', component: ReviewEditComponent},
       {path: 'review/create', component: ReviewCreateComponent},
       {path: 'watchlist', component: MemberEditWatchlistComponent},
       {path: 'members', component: MemberListComponent},

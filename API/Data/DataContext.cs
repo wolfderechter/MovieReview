@@ -14,7 +14,6 @@ namespace API.Data
         public DbSet<Movie> Movies { get; set; }
         // public DbSet<AppUserMovie> AppUserMovies { get; set; }
 
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
