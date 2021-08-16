@@ -6,9 +6,16 @@
         <!-- <div class="alert alert-info" *ngIf="editForm.dirty">
             <strong>Information: </strong> You have made changes. Any unsaved changes will be lost
         </div> -->
+        <div class="row" *ngIf="validationErrors?.length > 0">
+            <ul class="text-danger">
+                <li *ngFor="let error of validationErrors">
+                    {{error}}
+                </li>
+            </ul>
+        </div>
     </div>
     <!-- Movie card -->
-    <div class="col-4">
+    <div class="col-4" *ngIf=movie>
         <div class="card">
             <img [src]="checkIfImageExists()" class="card-img-top img-thumbnail">
 
@@ -27,18 +34,11 @@
         <form [formGroup]='reviewForm' (ngSubmit)="createReview()" id="reviewForm">
             <h4>Score</h4>
             <!-- <textarea class="form-control" name="score" rows="6"></textarea> -->
-            <select name="score" class="form-control" formControlName='score'>
-                <option selected=selected>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-            </select>
+            <input class="form-control" type="number" formControlName='score'
+            [class.is-invalid]='reviewForm.get("score").errors && reviewForm.get("score").touched'>
+            <div *ngIf="reviewForm.get('score').hasError('required')" class="invalid-feedback">A score is required</div>
+            <div *ngIf="reviewForm.get('score').hasError('min')" class="invalid-feedback">Minimum score is 0</div>
+            <div *ngIf="reviewForm.get('score').hasError('max')" class="invalid-feedback">Maximum score is 10</div>
 
             <!-- <h4 class="mt-2">Looking for</h4>
             <textarea class="form-control" [(ngModel)]="review.lookingFor" name="lookingFor" rows="6"></textarea>

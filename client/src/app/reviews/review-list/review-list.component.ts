@@ -35,6 +35,6 @@ export class ReviewListComponent implements OnInit {
   
   editReview(review: Review){
     this.reviewService.review = review;
-    this.router.navigate(["/review/edit"]);
+    this.router.navigate(["/review/edit/", review.id]);
   }
 }

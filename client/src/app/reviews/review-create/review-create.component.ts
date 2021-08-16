@@ -49,7 +49,14 @@ export class ReviewCreateComponent implements OnInit {
   }
 
   loadMovie(){
-    this.movie = this.searchService.movie;
+    // this.movie = this.searchService.movie;
+    var movieTemp = this.searchService.getMovieById(this.route.snapshot.paramMap.get('imdbId')).subscribe(obj => {
+      this.movie = {
+        'imdbId': obj.imdbID,
+        'title': obj.Title,
+        'poster': obj.Poster
+      }
+    });
   }
 
   loadMember(){

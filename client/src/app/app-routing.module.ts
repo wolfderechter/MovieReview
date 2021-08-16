@@ -9,6 +9,7 @@ import { MemberListComponent } from './members/member-list/member-list.component
 import { MemberReviewListComponent } from './members/member-review-list/member-review-list.component';
 import { MemberWatchlistComponent } from './members/member-watchlist/member-watchlist.component';
 import { ReviewCreateComponent } from './reviews/review-create/review-create.component';
+import { ReviewDetailComponent } from './reviews/review-detail/review-detail.component';
 import { ReviewEditComponent } from './reviews/review-edit/review-edit.component';
 import { ReviewListComponent } from './reviews/review-list/review-list.component';
 import { SearchComponent } from './search/search.component';
@@ -23,8 +24,9 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {path: 'reviews', component: ReviewListComponent},
-      {path: 'review/edit', component: ReviewEditComponent},
-      {path: 'review/create', component: ReviewCreateComponent},
+      {path: 'review/:id', component: ReviewDetailComponent},
+      {path: 'review/edit/:id', component: ReviewEditComponent},
+      {path: 'review/create/:imdbId', component: ReviewCreateComponent},
       {path: 'watchlist', component: MemberEditWatchlistComponent},
       {path: 'members', component: MemberListComponent},
       {path: 'members/:username/watchlist', component: MemberWatchlistComponent},

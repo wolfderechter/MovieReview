@@ -10,7 +10,7 @@
     <div class="card-body">
       <h5>Score: {{review.score}}</h5>
       <a href="http://imdb.com/title/{{review.movie.imdbId}}" target="_blank" class="imdb-logo button btn btn-warning">IMDb</a>
-      <button class="button btn btn-dark">Full review</button>
+      <button class="button btn btn-dark" [routerLink]="['/review', review.id]">Full review</button>
       <button class="button btn btn-secondary" (click)="editReview(review)">Edit review</button>
     </div>
   </div>

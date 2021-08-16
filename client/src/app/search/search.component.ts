@@ -72,11 +72,12 @@ export class SearchComponent {
     }
 
     // if review bestaat
+    var review = this.member.reviews.find(r => r.movie.imdbId === movie.imdbID);
     if(this.member.reviews.find(r => r.movie.imdbId === movie.imdbID)){
-      this.router.navigate(["/review/edit"]);
+      this.router.navigate(["/review/edit", review.id]);
     }
     else{
-      this.router.navigate(["/review/create"]);
+      this.router.navigate(["/review/create", movie.imdbID]);
     }
   }
 

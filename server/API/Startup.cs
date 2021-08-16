@@ -44,6 +44,10 @@ namespace API
             {
                 options.UseSqlite(_config.GetConnectionString("DefaultConnection"));
             });
+
+            //Swagger
+            services.AddSwaggerDocument();
+
             services.AddControllers();
             services.AddCors();
 
@@ -70,6 +74,12 @@ namespace API
 
 
             app.UseHttpsRedirection();
+
+
+            //Swagger
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
+
 
             app.UseRouting();
 

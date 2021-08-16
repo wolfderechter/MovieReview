@@ -59,11 +59,12 @@ export class MemberEditWatchlistComponent implements OnInit {
     this.searchService.movie = movie;
     this.removeFromWatchlist(movie);
     // if review bestaat
+    var review = this.member.reviews.find(r => r.movie.imdbId === movie.imdbId);
     if(this.member.reviews.find(r => r.movie.imdbId === movie.imdbId)){
-      this.router.navigate(["/review/edit"]);
+      this.router.navigate(["/review/edit", review.id]);
     }
     else{
-      this.router.navigate(["/review/create"]);
+      this.router.navigate(["/review/create", movie.imdbId]);
     }
   }
 }

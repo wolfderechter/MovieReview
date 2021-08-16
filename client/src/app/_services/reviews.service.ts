@@ -22,8 +22,12 @@ export class ReviewsService {
     return this.http.get<Review[]>(this.baseUrl + 'users/' + username)
   }
 
-  getReview(username: string, movieId: string){
-    return this.http.get<Review>(this.baseUrl + 'users/' + username + '/reviews/' + movieId);
+  // getReview(username: string, movieId: string){
+  //   return this.http.get<Review>(this.baseUrl + 'users/' + username + '/reviews/' + movieId);
+  // }
+
+  getReview(username: string, reviewId: string){
+    return this.http.get<Review>(this.baseUrl + 'users/' + username + '/reviews/' + reviewId);
   }
 
   createReview(review: any){

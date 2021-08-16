@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
 import { Movie } from '../_models/movie';
 
 @Injectable()
@@ -22,5 +23,9 @@ export class SearchService {
 
   getMoviesBySearchTerm(query) {
     return this.http.get(`https://www.omdbapi.com/?apikey=d3f6c0ee&s=${query}`);
+  }
+
+  getMovieById(query) {
+    return this.http.get<any>(`https://www.omdbapi.com/?apikey=d3f6c0ee&i=${query}`);
   }
  }
