@@ -64,9 +64,9 @@ namespace API.Data
             // );
 
 
-            builder.Entity<Movie>().HasData(
-                new Movie{Id = 1, ImdbId = "tt0120338", Title = "Titanic", Poster = "https://m.media-amazon.com/images/M/MV5BMDdmZGU3NDQtY2E5My00ZTliLWIzOTUtMTY4ZGI1YjdiNjk3XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg"}
-            );
+            // builder.Entity<Movie>().HasData(
+            //     new Movie{Id = 1, ImdbId = "tt0120338", Title = "Titanic", Poster = "https://m.media-amazon.com/images/M/MV5BMDdmZGU3NDQtY2E5My00ZTliLWIzOTUtMTY4ZGI1YjdiNjk3XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg"}
+            // );
 
 
             // builder.Entity<Review>().HasData(

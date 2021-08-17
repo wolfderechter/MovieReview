@@ -50,7 +50,7 @@ export class ReviewCreateComponent implements OnInit {
 
   loadMovie(){
     // this.movie = this.searchService.movie;
-    var movieTemp = this.searchService.getMovieById(this.route.snapshot.paramMap.get('imdbId')).subscribe(obj => {
+    this.searchService.getMovieById(this.route.snapshot.paramMap.get('imdbId')).subscribe(obj => {
       this.movie = {
         'imdbId': obj.imdbID,
         'title': obj.Title,
@@ -68,7 +68,8 @@ export class ReviewCreateComponent implements OnInit {
 
   initializeForm(){
     this.reviewForm = this.fb.group({
-      score: ['', Validators.required]
+      score: ['', Validators.required],
+      reviewtext: ['',]
     })
   }
 
@@ -80,18 +81,10 @@ export class ReviewCreateComponent implements OnInit {
   }
 
   createReview(){
-    // this.review = {
-    //   Username: this.user.username,
-    //   Score: this.createForm.value.score,
-    //   Movie: this.movie,
-    // }
-    // console.log(this.createForm);
-    // console.log(this.review);
-    // this.reviewService.createReview(this.review);
-    // this.toastr.success("Succesfully created the review");
 
     this.reviewService.createReview({
       'Score': parseInt(this.reviewForm.value.score),
+      'ReviewText': this.reviewForm.value.review,
       'Movie': {
         'ImdbId': this.movie.imdbId,
         'Title': this.movie.title,

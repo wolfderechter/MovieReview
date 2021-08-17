@@ -1,24 +1,29 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container">
     <a class="navbar-brand" routerLink='/' routerLinkActive='active'>Movie Review</a>
 
-    <ul class="navbar-nav mr-auto" >
-      <ng-container *ngIf="accountService.currentUser$ | async">
-        <li class="nav-item">
-          <a class="nav-link" routerLink='/reviews' routerLinkActive='active'>My Reviews</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink='/watchlist' routerLinkActive='active'>Watchlist</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink='/members' routerLinkActive='active'>Members</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink='/search' routerLinkActive='active'>Search</a>
-        </li>
-      </ng-container>
-
-    </ul>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" 
+    aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbarNav" *ngIf="accountService.currentUser$ | async"> 
+      <span class="navbar-toggler-icon"></span>
+    </button >
+    <div class="collapse navbar-collapse" id="navbarNav" [ngbCollapse]="isCollapsed">
+      <ul class="navbar-nav">
+        <ng-container *ngIf="accountService.currentUser$ | async">
+          <li class="nav-item">
+            <a class="nav-link" routerLink='/reviews' (click)="isCollapsed = true" routerLinkActive='active'>My Reviews</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink='/watchlist' (click)="isCollapsed = true" routerLinkActive='active'>Watchlist</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink='/members' (click)="isCollapsed = true" routerLinkActive='active'>Members</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink='/search' (click)="isCollapsed = true" routerLinkActive='active'>Search</a>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
 
     <div class="dropdown" *ngIf="(accountService.currentUser$ | async) as user" dropdown> 
       <a class="dropdown-toggle text-light" dropdownToggle>Welcome  {{user.username | titlecase}}</a>
@@ -56,3 +61,9 @@
     </form>
   </div>
 </nav>
+
+    <!-- Jquery js file -->
+    <script src="./js/jquery.3.6.0.js"></script>
+
+    <!-- Bootstrap js file -->
+    <script src="./js/bootstrap.min.js"></script>

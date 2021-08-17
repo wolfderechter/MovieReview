@@ -27,6 +27,7 @@ import { SearchService } from './_services/search.service';
 import { MemberEditWatchlistComponent } from './members/member-edit/member-edit-watchlist/member-edit-watchlist.component';
 import { ReviewEditComponent } from './reviews/review-edit/review-edit.component';
 import { ReviewCreateComponent } from './reviews/review-create/review-create.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { ReviewCreateComponent } from './reviews/review-create/review-create.com
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right'
     }),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [
     SearchService,

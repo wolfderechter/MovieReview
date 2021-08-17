@@ -19,7 +19,6 @@ import { ReviewsService } from 'src/app/_services/reviews.service';
 export class ReviewEditComponent implements OnInit {
   movie: Movie;
   review: Review;
-  submitted = false;
   reviewForm: FormGroup;
   user: User;
   member: Member;
@@ -53,7 +52,8 @@ export class ReviewEditComponent implements OnInit {
 
   initializeForm(){
     this.reviewForm = this.fb.group({
-      score: [this.review.score, [Validators.required, Validators.min(0), Validators.max(10)]]
+      score: [this.review.score, [Validators.required, Validators.min(0), Validators.max(10)]],
+      reviewtext: [this.review.reviewtext]
     })
   }
 
@@ -68,6 +68,7 @@ export class ReviewEditComponent implements OnInit {
   updateReview(){
     this.reviewService.updateReview({
       'Score': parseInt(this.reviewForm.value.score),
+      'ReviewText': this.reviewForm.value.reviewtext,
       'Movie': {
         'ImdbId': this.review.movie.imdbId,
         'Title': this.review.movie.title,
@@ -81,7 +82,4 @@ export class ReviewEditComponent implements OnInit {
     });
   }
 
-  checkSubmitted(){
-    return this.submitted;
-  }
 }

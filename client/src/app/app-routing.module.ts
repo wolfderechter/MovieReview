@@ -14,7 +14,6 @@ import { ReviewEditComponent } from './reviews/review-edit/review-edit.component
 import { ReviewListComponent } from './reviews/review-list/review-list.component';
 import { SearchComponent } from './search/search.component';
 import { AuthGuard } from './_guards/auth.guard';
-import { PreventUnsavedChangesGuard } from './_guards/prevent-unsaved-changes.guard';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},

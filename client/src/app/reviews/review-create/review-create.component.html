@@ -40,6 +40,8 @@
             <div *ngIf="reviewForm.get('score').hasError('min')" class="invalid-feedback">Minimum score is 0</div>
             <div *ngIf="reviewForm.get('score').hasError('max')" class="invalid-feedback">Maximum score is 10</div>
 
+            <h4>Review</h4>
+            <textarea class="form-control" type="text" rows="5" formControlName='reviewtext'></textarea>
             <!-- <h4 class="mt-2">Looking for</h4>
             <textarea class="form-control" [(ngModel)]="review.lookingFor" name="lookingFor" rows="6"></textarea>
             <h4 mt-2>Interests</h4>

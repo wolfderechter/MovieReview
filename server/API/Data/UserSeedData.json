@@ -4,6 +4,7 @@
         "Reviews": [
             {
                 "Score": 9,
+                "Reviewtext": "A very good movie with beautiful shots. A masterpiece by a great director.",
                 "Movie": {
                     "ImdbId": "tt0118789",
                     "Title": "Buffalo '66",

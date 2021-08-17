@@ -23,20 +23,11 @@
     <div class="col-8">
         <form id="reviewForm" *ngIf=review>
             <h4>Score</h4>
-            <!-- <textarea class="form-control" name="score" rows="6"></textarea> -->
             <input class="form-control" type="number" readonly value={{review.score}}>
 
-            <!-- <h4 class="mt-2">Looking for</h4>
-            <textarea class="form-control" [(ngModel)]="review.lookingFor" name="lookingFor" rows="6"></textarea>
-            <h4 mt-2>Interests</h4>
-            <textarea class="form-control" [(ngModel)]="review.interests" name="interests" rows="6"></textarea> -->
-            <!-- <h4 class="mt-2">Location Details: </h4> -->
-            <!-- <div class="form-inline">
-                <label for="city">City: </label>
-                <input [(ngModel)]="member.city" type="text" name="city" class="form-control mx-2">
-                <label for="city">Country: </label>
-                <input [(ngModel)]="member.country" type="text" name="country" class="form-control mx-2">
-            </div> -->
+            <h4>Review</h4>
+            <textarea class="form-control" type="text" readonly rows="5" value={{review.reviewtext}}></textarea>
+
         </form>
     </div>
 </div>

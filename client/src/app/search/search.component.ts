@@ -50,7 +50,7 @@ export class SearchComponent {
       this.toastr.error('This movie is already in your watchlist!');
     }
     else{
-      if(confirm("Are you sure to add " + "'" + movie.Title + "'" + " to your watchlist?")) {
+      if(confirm("Are you sure you want to add " + "'" + movie.Title + "'" + " to your watchlist?")) {
         // ADD in api
         this.memberService.updateMember(movie).subscribe(() => {
           this.watchlist.push({

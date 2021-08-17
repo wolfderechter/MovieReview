@@ -19,7 +19,7 @@ import { Movie } from '../_models/movie';
 export class MembersService {
   baseUrl = environment.apiUrl;
 
-1
+
   constructor(private http: HttpClient) { }
 
   getMembers(){

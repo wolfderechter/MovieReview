@@ -13,7 +13,6 @@ import { Review } from '../_models/review';
   providedIn: 'root'
 })
 export class ReviewsService {
-  review: Review;
   baseUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }

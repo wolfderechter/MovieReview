@@ -37,6 +37,7 @@ namespace API.Controllers
             var review = new Review{
                 AppUser = author,
                 Score = createReviewDto.Score,
+                Reviewtext = createReviewDto.Reviewtext,
                 Movie = createReviewDto.Movie
             };
 
@@ -54,13 +55,9 @@ namespace API.Controllers
 
             var author = await _userRepository.GetUsersByUsernameAsync(username);
 
-            // var review = new Review{
-            //     AppUser = author,
-            //     Score = updateReview.Score,
-            //     Movie = updateReview.Movie
-            // };
             
             author.Reviews.FirstOrDefault(r => r.Movie.ImdbId == reviewDto.Movie.ImdbId).Score = reviewDto.Score;
+            author.Reviews.FirstOrDefault(r => r.Movie.ImdbId == reviewDto.Movie.ImdbId).Reviewtext = reviewDto.Reviewtext;
             _userRepository.Update(author);
 
             if(await _userRepository.SaveAllAsync())
