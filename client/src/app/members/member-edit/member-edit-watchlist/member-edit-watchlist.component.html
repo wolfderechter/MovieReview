@@ -1,6 +1,6 @@
 <h1>Watchlist of {{ member?.username | titlecase}}</h1>
 <div class="cards" >
-  <div class="card" *ngFor="let movie of watchlist">
+  <div class="card" *ngFor="let movie of watchlist" data-cy="watchlistCard">
     <div class="image">
       <img src="{{movie.poster}}"/>
     </div>

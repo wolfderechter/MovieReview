@@ -1,0 +1,40 @@
+
+  {
+    "id": 5,
+    "username": "admin",
+    "reviews": [
+      {
+        "id": 1,
+        "score": 10,
+        "reviewtext": "A very good movie with beautiful shots. A masterpiece by a great director.",
+        "movie": {
+          "id": 2,
+          "imdbId": "tt0118789",
+          "title": "Buffalo '66",
+          "poster": "https://m.media-amazon.com/images/M/MV5BMWJkZDFhOTEtMzc5NS00ZmZjLWJmZDItODAzNzgxZjM4NWFlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+        },
+        "appUserId": 5
+      },
+      {
+        "id": 2,
+        "score": 8,
+        "reviewtext": null,
+        "movie": {
+          "id": 3,
+          "imdbId": "tt8946378",
+          "title": "Knives Out",
+          "poster": "https://m.media-amazon.com/images/M/MV5BMGUwZjliMTAtNzAxZi00MWNiLWE2NzgtZGUxMGQxZjhhNDRiXkEyXkFqcGdeQXVyNjU1NzU3MzE@._V1_SX300.jpg"
+        },
+        "appUserId": 5
+      }
+    ],
+    "watchlist": [
+      {
+        "id": 9,
+        "imdbId": "tt0411477",
+        "title": "Hellboy II: The Golden Army",
+        "poster": "https://m.media-amazon.com/images/M/MV5BMjA5NzgyMjc2Nl5BMl5BanBnXkFtZTcwOTU3MDI3MQ@@._V1_SX300.jpg"
+      }
+    ]
+  }
+
