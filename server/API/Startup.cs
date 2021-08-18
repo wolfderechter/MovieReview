@@ -20,6 +20,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using NSwag;
+using NSwag.Generation.Processors.Security;
 
 namespace API
 {
@@ -59,6 +61,22 @@ namespace API
                     ValidateIssuer = false,
                     ValidateAudience = false,
                 };
+            });
+
+            services.AddOpenApiDocument(c =>
+            {
+                c.DocumentName = "apidocs";
+                c.Title = "MovieReview API";
+                c.Version = "v1";
+                c.Description = "The Movie Review API documentation description.";
+                c.AddSecurity("JWT", new NSwag.OpenApiSecurityScheme
+                {
+                    Type = OpenApiSecuritySchemeType.ApiKey,
+                    In = OpenApiSecurityApiKeyLocation.Header,
+                    Name = "Authorization",
+                    Description = "Type into the textbox: Bearer {your JWT token}."
+                });
+                c.OperationProcessors.Add(new AspNetCoreOperationSecurityScopeProcessor("JWT"));
             });
         }
 
