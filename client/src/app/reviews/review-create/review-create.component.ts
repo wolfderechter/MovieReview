@@ -81,10 +81,9 @@ export class ReviewCreateComponent implements OnInit {
   }
 
   createReview(){
-
     this.reviewService.createReview({
       'Score': parseInt(this.reviewForm.value.score),
-      'ReviewText': this.reviewForm.value.review,
+      'Reviewtext': this.reviewForm.value.reviewtext,
       'Movie': {
         'ImdbId': this.movie.imdbId,
         'Title': this.movie.title,

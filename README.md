@@ -1,6 +1,9 @@
 # 2021-karine-wolfderechter
-Movie Review (Angular Application & API)  Mono Repository
+Movie Review (Angular Application & API) Mono Repository.
+
 An application where you can search for movies (via the omdb API) add them to your watchlist or add a review.  
+
+![Demo MovieReview gif](DemoMovieReview.gif)
 
 Prerequisites
 - Node.js installed: https://nodejs.org/en/

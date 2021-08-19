@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="card-footer">
-                <button form="reviewForm" type="submit" class="btn btn-success btn-block">Save changes</button>
+                <button form="reviewForm" type="submit" class="btn btn-success btn-block" cy-data="saveButton">Save changes</button>
             </div>
         </div>
     </div>
@@ -35,13 +35,13 @@
             <h4>Score</h4>
             <!-- <textarea class="form-control" name="score" rows="6"></textarea> -->
             <input class="form-control" type="number" formControlName='score'
-            [class.is-invalid]='reviewForm.get("score").errors && reviewForm.get("score").touched'>
-            <div *ngIf="reviewForm.get('score').hasError('required')" class="invalid-feedback">A score is required</div>
-            <div *ngIf="reviewForm.get('score').hasError('min')" class="invalid-feedback">Minimum score is 0</div>
-            <div *ngIf="reviewForm.get('score').hasError('max')" class="invalid-feedback">Maximum score is 10</div>
+            [class.is-invalid]='reviewForm.get("score").errors && reviewForm.get("score").touched' data-cy="scoreInput">
+            <div *ngIf="reviewForm.get('score').hasError('required')" class="invalid-feedback" data-cy="scoreRequiredError">A score is required</div>
+            <div *ngIf="reviewForm.get('score').hasError('min')" class="invalid-feedback" data-cy="minScoreError">Minimum score is 0</div>
+            <div *ngIf="reviewForm.get('score').hasError('max')" class="invalid-feedback" data-cy="maxScoreError">Maximum score is 10</div>
 
             <h4>Review</h4>
-            <textarea class="form-control" type="text" rows="5" formControlName='reviewtext'></textarea>
+            <textarea class="form-control" type="text" rows="5" formControlName='reviewtext' data-cy="reviewTextarea"></textarea>
             <!-- <h4 class="mt-2">Looking for</h4>
             <textarea class="form-control" [(ngModel)]="review.lookingFor" name="lookingFor" rows="6"></textarea>
             <h4 mt-2>Interests</h4>

@@ -1,6 +1,6 @@
 
 <!-- <input type="text" [formControl]="searchControl" placeholder="Search" class="searchbox" (ngSubmit)="search()"> -->
-<input type="search" [(ngModel)]="searchString" placeholder="Search a movie" class="form-control" (keyup.enter)="search()">
+<input type="search" [(ngModel)]="searchString" placeholder="Search a movie" class="form-control" (keyup.enter)="search()" data-cy="searchInput">
 
 
 <div class="cards" >
@@ -15,7 +15,7 @@
     <div class="card-button">
       <a href="http://imdb.com/title/{{movie.imdbID}}" target="_blank" class="imdb-logo button btn btn-warning">IMDb</a>
       <a class="button btn btn-dark" (click)="addToWatchlist(movie)">Add To Watchlist <div class="back"></div></a>
-      <a class="button btn btn-secondary" (click)="createReview(movie)">Add Review</a>
+      <a class="button btn btn-secondary" (click)="createReview(movie)" data-cy="addReviewButton">Add Review</a>
     </div>
   </div>
 

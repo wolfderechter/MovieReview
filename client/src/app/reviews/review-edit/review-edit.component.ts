@@ -68,7 +68,7 @@ export class ReviewEditComponent implements OnInit {
   updateReview(){
     this.reviewService.updateReview({
       'Score': parseInt(this.reviewForm.value.score),
-      'ReviewText': this.reviewForm.value.reviewtext,
+      'Reviewtext': this.reviewForm.value.reviewtext,
       'Movie': {
         'ImdbId': this.review.movie.imdbId,
         'Title': this.review.movie.title,
