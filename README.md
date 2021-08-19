@@ -22,3 +22,7 @@ Client
 Server
 - cd server/Api
 - dotnet run
+
+Clear database
+-cd server/Api
+-dotnet ef database drop
