@@ -28,6 +28,11 @@ namespace API.Controllers
             _mapper = mapper;
         }
 
+        // POST: api/Reviews
+        /// <summary>
+        /// Create a review
+        /// </summary>
+        /// <param name="createReviewDto">Review to create</param>
         [HttpPost]
         public async Task<ActionResult<ReviewDto>> CreateReview(CreateReviewDto createReviewDto){
             var username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -49,6 +54,11 @@ namespace API.Controllers
             return BadRequest("Failed to send message");
         }
 
+        // PUT: api/Reviews
+        /// <summary>
+        /// Update a review
+        /// </summary>
+        /// <param name="reviewDto">Review to update</param>
         [HttpPut]
         public async Task<ActionResult> UpdateReview(UpdateReviewDto reviewDto){
             var username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;

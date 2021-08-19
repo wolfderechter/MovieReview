@@ -29,7 +29,10 @@ namespace API.Controllers
         }
 
 
-        // Get all users
+        // GET: api/Users
+        /// <summary>
+        /// Get all users
+        /// </summary>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers()
         {
@@ -39,7 +42,11 @@ namespace API.Controllers
 
 
 
-        //Get a specific user
+        // GET: api/Users
+        /// <summary>
+        /// Get a specific user
+        /// </summary>
+        /// <param name="username">Username of the user to retrieve</param>
         [HttpGet("{username}")]
         public async Task<ActionResult<MemberDto>> GetUser(string username)
         {
@@ -47,7 +54,11 @@ namespace API.Controllers
         }
 
 
-        // Movie uit watchlist DELETEN 
+        // PUT: api/Account
+        /// <summary>
+        /// Delete or add movie in watchlist
+        /// </summary>
+        /// <param name="movieDto">Movie to add or delete</param> 
         [HttpPut]
         [Route("watchlist")]
         public async Task<ActionResult> DeleteOrAddMovieFromWatchlist(MovieDto movieDto){
@@ -79,10 +90,6 @@ namespace API.Controllers
         }
 
 
-        // Movie uit watchlist ADDEN 
-        // [HttpPut]
-        // public async Task<ActionResult> AddMovieToWatchlist(){
 
-        // }
     }
 }

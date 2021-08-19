@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
+    [ApiConventionType(typeof(DefaultApiConventions))]
     public class AccountController : BaseApiController
     {
         private readonly DataContext _context;
@@ -21,6 +22,11 @@ namespace API.Controllers
 
         }
 
+        // POST: api/Account
+        /// <summary>
+        /// Register a new user
+        /// </summary>
+        /// <param name="registerDto">User credentials that registered</param>
         [HttpPost("register")]
         public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
         {
@@ -44,6 +50,11 @@ namespace API.Controllers
             };
         }
 
+        // POST: api/Account
+        /// <summary>
+        /// Login a user
+        /// </summary>
+        /// <param name="loginDto">user credentials that wants to log in</param>
         [HttpPost("login")]
         public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
         {
