@@ -10,7 +10,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    [ApiConventionType(typeof(DefaultApiConventions))]
     public class AccountController : BaseApiController
     {
         private readonly DataContext _context;

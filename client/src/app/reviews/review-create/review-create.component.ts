@@ -68,8 +68,8 @@ export class ReviewCreateComponent implements OnInit {
 
   initializeForm(){
     this.reviewForm = this.fb.group({
-      score: ['', Validators.required],
-      reviewtext: ['',]
+      score: ['', [Validators.required, Validators.min(0), Validators.max(10)]],
+      reviewtext: ['']
     })
   }
 
