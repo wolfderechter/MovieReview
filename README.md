@@ -5,9 +5,6 @@ An application where you can search for movies (via the omdb API) add them to yo
 
 ![Demo MovieReview gif](DemoMovieReview.gif)
 
-Live Demo
-- Front-End: https://moviereview-angular.web.app/
-- Back-End: https://moviereviewapi.azurewebsites.net
 
 Prerequisites
 - Node.js installed: https://nodejs.org/en/
